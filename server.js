@@ -1,22 +1,26 @@
+const { response } = require("express");
 const express = require("express");
 
 const app = express();
+const cors = require("cors");
 
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
 
+app.use(cors());
 app.use(express.json());
+
+let payload = [];
 
 // require('./app/routes')(app, {});
 
-app.get("/", () => {
-  return res.send({ data: {} });
+app.get("/", (req, res) => {
+  //   console.log(payload[payload.length - 1]);
+  return res.send(payload);
 });
 
 app.post("/", (req, res) => {
-  console.log(res);
-  //   return res.send({
-  //     error: "Bad Request : missing required parameter NAME",
-  //   });
+  payload.push(req.body);
+  return res.send("webhook received");
 });
 
 app.listen(PORT, () => {
