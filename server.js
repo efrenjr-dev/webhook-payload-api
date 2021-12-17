@@ -12,7 +12,7 @@ let payload = [];
 // require('./app/routes')(app, {});
 
 app.get("/", (req, res) => {
-  console.log(payload[payload.length - 1]);
+  //   console.log(payload[payload.length - 1]);
   return res.send(payload[payload.length - 1]);
 });
 
