@@ -15,7 +15,7 @@ let payload = [];
 
 app.get("/", (req, res) => {
   //   console.log(payload[payload.length - 1]);
-  return res.send(payload[payload.length - 1]);
+  return res.send(payload);
 });
 
 app.post("/", (req, res) => {
